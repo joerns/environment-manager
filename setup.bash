@@ -19,10 +19,10 @@ function _mycomplete_()
         # See if we are fooing or unfooing.
         case "$line" in
         *go*)
-            COMPREPLY=(`find $ENVMAN_BASEDIR/envs -path "${word}*.sh" -printf "%P\n"| while read NAME ; do echo ${NAME%.sh}; done`)
+            COMPREPLY=(`find $ENVMAN_BASEDIR -path "${ENVMAN_BASEDIR}/${word}*.sh" -printf "%P\n"| while read NAME ; do echo ${NAME%.sh}; done`)
             ;;
         *edit*)
-            COMPREPLY=(`find $ENVMAN_BASEDIR/envs $ENVMAN_BASEDIR/include -path "${word}*.sh" -printf "%P\n"| while read NAME ; do echo ${NAME%.sh}; done`)
+            COMPREPLY=(`find $ENVMAN_BASEDIR -path "${ENVMAN_BASEDIR}/${word}*.sh" -printf "%P\n"| while read NAME ; do echo ${NAME%.sh}; done`)
             ;;
         esac
         ;;
