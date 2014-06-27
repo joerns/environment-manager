@@ -21,8 +21,6 @@ case $1 in
 		exit -2
 	fi
 
-    echo Begin working in env \'$2\'
-    echo Sourcing file \'$ENV_FILE\'
     source $ENV_FILE
 
     source ~/.bashrc
