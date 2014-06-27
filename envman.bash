@@ -7,6 +7,7 @@
 ENVMAN_ENV_DIR=$ENVMAN_BASEDIR/envs
 ENVMAN_INCLUDE_DIR=$ENVMAN_BASEDIR/include
 
+
 case $1 in
   go)
 	if [ -N $2 ]; then
