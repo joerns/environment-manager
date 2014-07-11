@@ -21,14 +21,9 @@ case $1 in
 		exit -2
 	fi
 
-    source $ENV_FILE
+	#source $ENV_FILE
 
-    source ~/.bashrc
-    source /etc/bashrc
-
-    export PS1="${PS1} (\e[0;34m$2\e[0m) "
-
-    $SHELL -i
+    PS1="${PS1} (\e[0;34m$2\e[0m) " $SHELL --rcfile $ENV_FILE
     ;;
   list)
 	for x in $(cd $ENVMAN_ENV_DIR && find . -type f -iname "*.sh"); do
