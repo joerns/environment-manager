@@ -6,6 +6,9 @@
 
 ENVMAN_ENV_DIR=$ENVMAN_BASEDIR/
 
+# figure out directory of this file
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PRE_SOURCE_HOOK=$DIR/"pre-source-hook.bash"
 
 case $1 in
   go)
@@ -23,7 +26,7 @@ case $1 in
 
 	#source $ENV_FILE
 
-    PS1="${PS1} (\e[0;34m$2\e[0m) " $SHELL --rcfile $ENV_FILE
+	ENVMAN_ENV_DIR="${ENVMAN_ENV_DIR}" ENV_FILE="${ENV_FILE}" PS1="${PS1} (\e[0;34m$2\e[0m) " $SHELL --rcfile $PRE_SOURCE_HOOK
     ;;
   list)
 	for x in $(cd $ENVMAN_ENV_DIR && find . -type f -iname "*.sh"); do
