@@ -26,7 +26,7 @@ case $1 in
 
 	#source $ENV_FILE
 
-	ENVMAN_ENV_DIR="${ENVMAN_ENV_DIR}" ENV_FILE="${ENV_FILE}" PS1="${PS1} (\[\e[0;34m$2\e[m\]) " $SHELL --rcfile $PRE_SOURCE_HOOK
+	ENVMAN_ENV_DIR="${ENVMAN_ENV_DIR}" ENV_FILE="${ENV_FILE}" PS1="${PS1} (\\[\\[\\e[0;34m\\]$2\\[\\e[m\\]\\]) " $SHELL --rcfile $PRE_SOURCE_HOOK
     ;;
   list)
 	for x in $(cd $ENVMAN_ENV_DIR && find . -type f -iname "*.sh"); do
